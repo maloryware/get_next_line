@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Mal <malory@onenetbeyond.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 21:56:28 by davpache          #+#    #+#             */
-/*   Updated: 2025/05/09 20:19:20 by davpache         ###   ########.fr       */
+/*   Created: 2025/05/03 21:56:28 by Mal          #+#    #+#             */
+/*   Updated: 2025/05/09 20:37:40 by Mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+/* #include "get_next_line_utils.c" */
 
 char	*get_next_line(int fd)
 {

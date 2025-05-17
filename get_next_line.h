@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Mal <malory@onenetbeyond.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 21:53:45 by davpache          #+#    #+#             */
-/*   Updated: 2025/05/09 18:35:31 by davpache         ###   ########.fr       */
+/*   Created: 2025/05/03 21:53:45 by Mal          #+#    #+#             */
+/*   Updated: 2025/05/09 20:31:56 by Mal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # include <limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2147483646
+// #  define BUFFER_SIZE 2147483646
+#  define BUFFER_SIZE 512
 # endif
 
 /* typedef struct s_filedata
