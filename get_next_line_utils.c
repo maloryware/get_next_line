@@ -15,10 +15,8 @@
 char	*arr_to_line(char *buf, int size)
 {
 	char	*out;
-	int		i;
 	int		sref;
 
-	i = 0;
 	sref = size;
 	out = malloc(sref + 1);
 	flush(out);

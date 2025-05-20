@@ -19,9 +19,9 @@ char	*get_next_line(int fd)
 	char		*out;
 	int			i;
 
+	i = 0;
 	if (fd < 0)
 		return (NULL);
-	i = 0;
 	if (!*buf)
 		if (read(fd, buf, BUFFER_SIZE) <= 0)
 			return (NULL);

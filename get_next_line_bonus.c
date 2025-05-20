@@ -44,7 +44,7 @@ char	*get_next_line(int fd)
 
 	tmp = open("test1.txt", O_RDONLY);
 	tmp2 = open("test2.txt", O_RDONLY);
-	while ((s = get_next_line(tmp)) && (ss = get_next_line(tmp2)))
+	while ((s = get_next_line(tmp)) || (ss = get_next_line(tmp2)))
 	{
 		printf("%s", s);
 		printf("%s", ss);
