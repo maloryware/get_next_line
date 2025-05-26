@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Mal <malory@onenetbeyond.org>          +#+  +:+       +#+        */
+/*   By: Mal <malory@onenetbeyond.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 21:56:28 by Mal          #+#    #+#             */
-/*   Updated: 2025/05/09 20:28:11 by Mal         ###   ########.fr       */
+/*   Created: 2025/05/20 21:34:06 by Mal               #+#    #+#             */
+/*   Updated: 2025/05/20 21:34:10 by Mal              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,25 @@ char	*get_next_line(int fd)
 	char		*out;
 	int			i;
 
-	if (fd < 0 || fd > FOPEN_MAX)
+	out = NULL;
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	i = 0;
-	if (!*buf[fd])
-		if (read(fd, buf[fd], BUFFER_SIZE) <= 0)
-			return (NULL);
-	while (buf[fd][i] != '\n' && buf[fd][i])
-		i++;
-	out = arr_to_line(buf[fd], i);
-	if (buf[fd][i] == '\n')
-		pseudo_memmove(buf[fd], i);
-	else
-		flush(buf[fd]);
+	while (1)
+	{
+		if (!*buf[fd])
+		{
+			i = read(fd, buf[fd], BUFFER_SIZE);
+			if (i <= 0)
+				break ;
+			buf[fd][i] = '\0';
+		}
+		if (ft_strchr(buf[fd], '\n'))
+			return (full_line(out, buf[fd]));
+		out = ft_strjoin(out, buf[fd]);
+		*buf[fd] = '\0';
+	}
+	if (i < 0)
+		return (free(out), NULL);
 	return (out);
 }
 
@@ -39,14 +45,24 @@ char	*get_next_line(int fd)
 {
 	int		tmp;
 	int		tmp2;
+	// int		i;
 	char	*s;
-	char	*ss;
 
 	tmp = open("test1.txt", O_RDONLY);
 	tmp2 = open("test2.txt", O_RDONLY);
-	while ((s = get_next_line(tmp)) || (ss = get_next_line(tmp2)))
-	{
-		printf("%s", s);
-		printf("%s", ss);
-	}
-} */
+	// i = 0;
+	s = get_next_line(tmp);
+	printf("%s", s);
+	s = get_next_line(tmp2);
+	printf("%s", s);
+	s = get_next_line(tmp);
+	printf("%s", s);
+	s = get_next_line(tmp2);
+	printf("%s", s);
+	s = get_next_line(tmp);
+	printf("%s", s);
+	s = get_next_line(tmp2);
+	printf("%s", s);
+	free(s);
+}
+ */

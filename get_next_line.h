@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Mal <malory@onenetbeyond.org>          +#+  +:+       +#+        */
+/*   By: Mal <malory@onenetbeyond.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 21:53:45 by Mal          #+#    #+#             */
-/*   Updated: 2025/05/09 20:31:56 by Mal         ###   ########.fr       */
+/*   Created: 2025/05/20 21:34:43 by Mal               #+#    #+#             */
+/*   Updated: 2025/05/21 15:47:50 by Mal              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,16 @@
 # include <fcntl.h>
 # include <limits.h>
 
+/* 2147483646 */
 # ifndef BUFFER_SIZE
-// #  define BUFFER_SIZE 2147483646
-#  define BUFFER_SIZE 512
+#  define BUFFER_SIZE 1
 # endif
 
-/* typedef struct s_filedata
-{
-	int		fd;
-	char	buffer[BUFFER_SIZE + 1];
-}	t_filedata; */
-
-/*  */
 char	*get_next_line(int fd);
-char	*arr_to_line(char *buf, int size);
-void	pseudo_memmove(char *buf, int start);
-void	flush(char *buf);
+
+size_t	ft_strlen(const char *str);
+char	*ft_strchr(const char *s, int b);
+char	*ft_strjoin(char *s1, char *s2);
+char	*full_line(char *oug, char *arr);
 
 #endif
